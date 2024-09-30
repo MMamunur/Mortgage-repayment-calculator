@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+:root{
+    --Lime: hsl(61, 70%, 52%);
+    --Red: hsl(4, 69%, 50%);
+    --White: hsl(0, 0%, 100%);
+    --Slate-100: hsl(202, 86%, 94%);
+    --Slate-300: hsl(203, 41%, 72%);
+    --Slate-500: hsl(200, 26%, 54%);
+    --Slate-700: hsl(200, 24%, 40%);
+    --Slate-900: hsl(202, 55%, 16%);
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--Slate-100);
+    overflow-x: hidden;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+.main_card{
+    width: 870px;
+    background: var(--White);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    border-radius: 20px;
+}
+
+/* ====================== left card style ===================== */
+
+.left_card{
+    padding: 35px;
+    width: 100%;
+}
+
+
+
+.left_card .card_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 15px;
+}
+
+.left_card .card_heading h2{
+    color: var(--Slate-900);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.left_card .card_heading a{
+    color: var(--Slate-500);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.left_card .card_body{
+    font-size: 14px;
+    width: 100%;
+}
+
+.group{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.form_group{
+    display: grid;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.form_group label{
+    color: var(--Slate-500);
+}
+.form_field{
+    display: flex;
+    border: 1px solid var(--Slate-700);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.form_field_radio{
+    display: flex;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.form_field span{
+    background: var(--Slate-100);
+    color: var(--Slate-700);
+    padding: 12px 12px;
+    font-weight: 700;
+    border-radius: 2px;
+}
+
+.form_field input{
+    width: 100%;
+    color: var(--Slate-700);
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form_field:focus-within > span{
+    background: var(--Lime);
+    color: var(--Slate-900);
+}
+.form_field:focus-within > input{
+    padding: 0 10px;
+}
+
+.form_field_radio > input[type="radio"] {
+	display: none;
+}
+
+.form_field_radio label {
+	display: block;
+    width: 100%;
+	padding: 12px 60px;
+	border: 1px solid var(--Slate-700);
+    background: #eee;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 500;
+	min-width: 250px;
+	white-space: nowrap;
+	position: relative;
+	transition: 0.4s ease-in-out 0s;
+}
+
+.form_field_radio label:after,
+.form_field_radio label:before {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+}
+.form_field_radio label:after {
+	height: 18px;
+	width: 18px;
+	border: 1px solid gray;
+	left: 19px;
+	top: calc(50% - 7px);
+}
+.form_field_radio label:before {
+	background: var(--Lime);
+	height: 10px;
+	width: 10px;
+	left: 23px;
+	top: calc(50% - 3px);
+	transform: scale(5);
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.4s ease-in-out 0s;
+}
+
+.form_field_radio [type="radio"]:checked ~ label {
+	border-color: var(--Lime);
+    background-color: hsl(60, 80%, 90%);
+}
+.form_field_radio [type="radio"]:checked ~ label::before {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+.form_field_radio [type="radio"]:checked ~ label::after {
+    border: 1px solid var(--Lime);
+}
+
+
+.form-group > button {
+    display: flex;
+    align-items: center;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 35px;
+    background: var(--Lime);
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+.form-group > button img {
+    margin-right: 7px;
+}
+
+.form-group > button:hover{
+    opacity: .8;
+}
+
+/* ================ Validation error style ================ */
+.error .form_field{
+    border: 1px solid var(--Red);
+    margin-bottom: 1ex;
+    
+}
+.error .form_field > span{
+    background: var(--Red);
+    color: #eee;
+}
+
+.error::after{
+    content: "This field is required";
+    color: var(--Red);
+    margin-bottom: 20px;
+}
+
+
+/* ========== right card start ============= */
+.right_card{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Slate-900);
+    color: #eee;
+    border-radius: 0px 20px 20px 70px;
+    padding: 36px;
+}
+
+.empty_result_card{
+    display: block;
+}
+
+.show_result_card{
+    display: none;
+}
+
+.show_result_card .card_heading{
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.empty_result_card .empty_card_body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.empty_result_card .empty_card_body h2,
+.right_card .card_heading h2{
+    font-size: 22px;
+    padding: 10px 0;
+}
+.empty_result_card .empty_card_body p,
+.right_card .card_heading p{
+    font-size: 14px;
+    color: var(--Slate-300);
+    margin-bottom: 20px;
+}
+
+.show_result_card .card_body{
+    background: rgb(6, 28, 31);
+    padding: 20px;
+    border-top: 3px solid var(--Lime);
+    border-radius: 5px;
+}
+
+.show_result_card .card_body .monthly p{
+    color: var(--Slate-300);
+    font-size: 15px;
+    line-height: 25px;
+    padding: 10px 0;
+}
+ 
+.show_result_card .card_body .monthly h3{
+    color: var(--Lime);
+    font-size: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--Slate-700);
+}
+.show_result_card .total{
+    padding: 20px 0;
+}
+
+.show_result_card .total p{
+    color: var(--Slate-300);
+    font-size: 15px;
+    line-height: 25px;
+
+}
+
+.show_result_card .total h5{
+    color: var(--Slate-100);
+    font-size: 18px;
+    line-height: 28px;
+}
+
+
+/* ============== Media Query ======================== */
+
+@media screen and (max-width: 475px){
+    .container{
+        width: 100%;
+        margin: auto;
+    }
+    .main_card{
+        width: 100%;
+        grid-template-columns: 1fr;
+        margin: auto;
+        border-radius: 0;
+    }
+
+    .right_card{
+        border-radius: 0;
+    }
+}
+@media screen and (min-width: 475px){
+    .container{
+        width: 92%;
+    }
+    .main_card{
+        max-width: 400px;
+        margin: auto;
+        grid-template-columns: 1fr;
+        border-radius: 0;
+    }
+
+    .right_card{
+        border-radius: 0;
+    }
+}
+@media screen and (min-width: 768px){
+    .container{
+        width: 90%;
+    }
+    .main_card{
+        width: 100%;
+        max-width: 850px;
+        grid-template-columns: 1fr 1fr;
+        
+        border-radius: 20px;
+    }
+
+    .right_card{
+        border-radius: 0px 20px 20px 70px;
+    }
+
+}
+@media screen and (min-width: 992px) {
+    .main_card{
+        max-width: 870px;
+    }
+}

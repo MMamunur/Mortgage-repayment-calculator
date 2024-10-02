@@ -13,7 +13,8 @@ formSubmit.addEventListener('click', function(){
     const amount = document.getElementById("amount").value;
     const interest = document.getElementById("Interest_rate").value;
     const term = document.getElementById("term").value;
-    const type = document.querySelector("input[name=type]").checked;
+    const type1 =document.querySelector("input[name = type][value='Repayment']").checked;
+    const type2 =document.querySelector("input[name = type][value='Interest']").checked;
 
     if(amount == false){
         form_group_1.classList.add('error');
@@ -24,11 +25,11 @@ formSubmit.addEventListener('click', function(){
     if(term == false){
         form_group_3.classList.add('error');
     }
-    if(type == false){
+    if(type1 == false && type2 == false){
         form_group_4.classList.add('error');
     }
 
-    if(amount != false && interest != false && term != false && type != false){
+    if(amount != false && interest != false && term != false && (type1 != false || type2 != false)){
         showdiv[0].style.display = "block";
         hidediv[0].style.display = "none";
     }
